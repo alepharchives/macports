@@ -1,0 +1,51 @@
+# $Id: Portfile 92969 2012-05-12 13:26:40Z jmr@macports.org $
+
+PortSystem      1.0
+
+name            wxgtk-opengl
+conflicts       wxWidgets wxWidgets-python wxgtk
+version         2.8.12
+categories      x11
+license         wxwidgets
+platforms       darwin
+maintainers     nomaintainer
+
+description     The wxWidgets GUI toolkit with GTK+ bindings
+long_description    \
+    A C++ package for platform independent software development
+
+homepage        http://wxwidgets.org/
+master_sites    sourceforge:wxwindows
+distname        wxGTK-${version}
+
+checksums       sha1    a8d31ef924ae49e97690646b13d5a2a7be7dda10 \
+                rmd160  c401f141ed9fb085c7b79a2f0db788ce6ae9309f
+
+use_bzip2       yes
+use_parallel_build yes
+depends_build   port:pkgconfig
+depends_lib     port:gtk2 \
+                port:tiff \
+                port:jpeg \
+                port:libpng \
+                port:freetype \
+                port:mesa \
+                port:zlib
+
+patchfiles      patch-Makefile.in configure.patch
+
+# g++-4.2: -E, -S, -save-temps and -M options are not allowed with multiple -arch flags
+universal_variant no
+
+# --enable-graphics_ctx Seems to be unsupported on x86_64
+configure.args  --with-gtk --with-libpng --with-opengl --with-libjpeg --with-libtiff \
+                --with-freetype --with-zlib --enable-unicode
+post-destroot {
+    system "cd ${worksrcpath}/contrib && make && make install"
+    xinstall -m 755 -d ${destroot}${prefix}/share/doc/${name}
+    eval xinstall -m 644 [glob ${worksrcpath}/*.txt] \
+      ${destroot}${prefix}/share/doc/${name}
+#    system "cd ${worksrcpath}/contrib && cp -av include/wx/* ${destroot}${prefix}/include/wx-2.8/wx/"
+#    xinstall -m 644 ${worksrcpath}/contrib/lib/libwx_gtk2u_stc-* ${destroot}${prefix}/lib/
+
+}

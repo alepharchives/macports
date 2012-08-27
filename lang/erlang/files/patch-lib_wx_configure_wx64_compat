@@ -1,0 +1,27 @@
+--- lib/wx/configure.orig	2012-08-19 01:45:17.000000000 +0200
++++ lib/wx/configure	2012-08-19 01:45:50.000000000 +0200
+@@ -3876,24 +3876,6 @@
+ 
+ 
+ 
+-case $ac_cv_sizeof_void_p-$host_os in
+-    8-darwin*)
+-	if test X"$WX_BUILDING_INSIDE_ERLSRC" != X"true" ; then
+-		{ { echo "$as_me:$LINENO: error: Can not use 64bits wxWidgets on Darwin" >&5
+-echo "$as_me: error: Can not use 64bits wxWidgets on Darwin" >&2;}
+-   { (exit 1); exit 1; }; }
+-	else
+-		echo "Can not combine 64bits erlang with wxWidgets on MacOSX, wx will not be useable" > ./CONF_INFO
+-		WXERL_CAN_BUILD_DRIVER=false
+-		{ echo "$as_me:$LINENO: WARNING: Can not combine 64bits erlang with wxWidgets on MacOSX, wx will not be useable" >&5
+-echo "$as_me: WARNING: Can not combine 64bits erlang with wxWidgets on MacOSX, wx will not be useable" >&2;}
+-	fi
+-	WXERL_CAN_BUILD_DRIVER=false
+-	;;
+-    *)
+-	;;
+-esac
+-
+ PTHR_CFLAGS="-D_THREAD_SAFE -D_REENTRANT"
+ 
+ OBJC_CC=$CC
