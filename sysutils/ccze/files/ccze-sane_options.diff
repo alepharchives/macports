@@ -1,0 +1,12 @@
+diff -Nru ccze-0.2-1.orig/src/ccze.c ccze-0.2-1/src/ccze.c
+--- src/ccze.c	2012-08-30 10:32:52.000000000 +0200
++++ src/ccze.c	2012-08-31 13:25:21.000000000 +0200
+@@ -55,7 +55,7 @@
+   .convdate = 0,
+   .remfac = 0,
+   .wcol = 1,
+-  .slookup = 1,
++  .slookup = 0,
+   .rcfile = NULL,
+   .cssfile = NULL,
+   .transparent = 1,

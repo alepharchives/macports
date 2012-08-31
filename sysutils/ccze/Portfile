@@ -1,0 +1,30 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id$
+
+PortSystem  1.0
+
+name        ccze
+version     0.2-1
+
+categories  devel
+maintainers dweber openmaintainer
+
+description Log colorizer
+
+long_description    ccze is a log colorizer replacement of colorizr
+
+homepage        http://www.itk.org/ITK/resources/CableSwig.html
+platforms       darwin
+
+distname            ccze_${version}
+worksrcdir          ccze-${version}
+homepage            https://github.com/Jvalduvieco/ccze/
+master_sites        https://github.com/downloads/Jvalduvieco/ccze/
+checksums           md5    8c468117fdaad3987ed9c70222c994e2 \
+                    sha1   6efac57015a6a35a839766a479b759eec71ab607
+depends_lib         port:ncurses port:pcre
+
+
+depends_build   port:ncurses port:pcre
+
+patchfiles      ccze-sane_options.diff
