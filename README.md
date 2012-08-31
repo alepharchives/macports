@@ -1,4 +1,4 @@
-# macports
+# jvalduvieco macports
 
 This is my development repository for my local macports.
 
@@ -11,6 +11,12 @@ This is my development repository for my local macports.
 
 * Exported this variant of wxgtk as macports does not support variant dependency as far as I know.
 * Enabled 64bits support.
+
+## ccze
+
+* ccze is a log colorizer written in C. Depends on ncurses and pcre.
+* Created my macport of this tool.
+
 
 
 # Using my macports repo
