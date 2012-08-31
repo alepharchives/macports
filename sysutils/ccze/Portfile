@@ -13,7 +13,7 @@ description Log colorizer
 
 long_description    ccze is a log colorizer replacement of colorizr
 
-homepage        http://www.itk.org/ITK/resources/CableSwig.html
+homepage        http://www.none.com # ccze is no longer mantained and has no page
 platforms       darwin
 
 distname            ccze_${version}
@@ -27,4 +27,5 @@ depends_lib         port:ncurses port:pcre
 
 depends_build   port:ncurses port:pcre
 
+#ccze lookups servicenames, usernames on the systems. This eats CPU. Disable by default.
 patchfiles      ccze-sane_options.diff
