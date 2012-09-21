@@ -96,6 +96,11 @@ post-destroot   {
         file delete -force ${destroot}${prefix}/lib/erlang/bin/epmd
         system "ln -s ../${erts_dir}/bin/epmd ${destroot}${prefix}/lib/erlang/bin/epmd"
         system "ln -s ../lib/erlang/lib/${erl_interface_dir}/bin/erl_call ${destroot}${prefix}/bin/erl_call"
+
+        if {[variant_isset wxgtk]} {
+            ui_msg "Erlang with wxGTK has been installed."
+            ui_msg "You need to install a X server like XQuartz (http://xquartz.macosforge.org/landing/) if you expect to run graphics on local machine."
+        }
 }
 
 platform darwin 10 {
